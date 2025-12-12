@@ -1,26 +1,29 @@
 
-<div>
+<div class="login">
+    <div class="login-box">
     <form (ngSubmit)="check()">
         <div>
             <label for="username">نام کاربری </label>
-            <input ngModel="loginForm.username" id="username" name="username" type="text" placeholder="نام کاربری خود را وارد کنید ">
+            <input [(ngModel)]="loginForm.username" id="username" name="username" type="text" placeholder="نام کاربری خود را وارد کنید ">
         </div>
         <div>
             <label for="password">گذرواژه </label>
-            <input ngModel="loginForm.password" id="password" name="password" type="password" placeholder="کلمه ی عبور وارد کنید ">
+            <input [(ngModel)]="loginForm.password" id="password" name="password" type="password" placeholder="کلمه ی عبور وارد کنید ">
         </div>
         <div>
-            <input ngModel="loginForm.keepMe" id="keepMe" name="keepMe" type="checkbox">
+            <input [(ngModel)]="loginForm.keepMe" id="keepMe" name="keepMe" type="checkbox">
             <label for="keepMe">من را به خاطر بسپار </label>
         </div>
+
         <div>
             <button type="submit">ورود</button>
         </div>
-        @if(message!=''){
+        @if(message!==''){
             <div>
                 {{message}}
             </div>
         }
 
     </form>
+    </div>
 </div>
