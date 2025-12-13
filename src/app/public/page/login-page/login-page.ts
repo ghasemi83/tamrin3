@@ -17,7 +17,11 @@ export class LoginPage {
   };
   message:string='';
   check(){
-     if (this.loginForm.username=='admin' && this.loginForm.password=='admin'){
+     if(this.loginForm.username=='admin' && this.loginForm.password=='admin'){
+      sessionStorage.setItem('token','fgh%$$cfgfghh123456789fdghdfh');
+      if(this.loginForm.keepMe==true){
+        localStorage.setItem('token','fgh%$$cfgfghh123456789fdghdfh');
+      }
       this.router.navigateByUrl('/private');
     }
     else{
