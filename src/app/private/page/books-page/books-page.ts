@@ -10,6 +10,7 @@ import { DecimalPipe } from '@angular/common';
   templateUrl: './books-page.html',
   styleUrl: './books-page.scss',
 })
+
 export class BooksPage implements OnInit {
 save() {
 this.booksService.add(this.item);

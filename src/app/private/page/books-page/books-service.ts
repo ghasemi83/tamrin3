@@ -7,10 +7,10 @@ import { BookItem } from './books-page';
 export class BooksService {
   
   private data:BookItem[]=[
-    {id:1,title:'برنامه نویسی ',writer:'خودم ',publisher:'خودش ',price:8000},
-    {id:2,title:' داده کاوی  ',writer:'خودم ',publisher:'خودش ',price:10000},
-    {id:3,title:' پایگاه داده ',writer:'خودم ',publisher:'خودش ',price:45000},
-    {id:4,title:' ساختمان داده ',writer:'خودم ',publisher:'خودش ',price:280000},
+    {id:1,title:'بیمناک',writer:'لورن رابرتس ',publisher:'آذرگون ',price:200000},
+    {id:2,title:' یاد او',writer:'کالین هوور ',publisher:'آذرگون ',price:150000},
+    {id:3,title:'دیزی دارکر ',writer:'آلیس فینی ',publisher:'آذرگون ',price:450000},
+    {id:4,title:' دزیره ',writer:'آن ماری سلینکو ',publisher:'آذرگون ',price:280000},
    ];
     add(book:BookItem) {
   this.data.push(book);

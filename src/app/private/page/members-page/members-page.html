@@ -1,1 +1,30 @@
-<p>members-page works!</p>
+<div>
+    <button (click)="add()">افزودن </button>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th> شناسه </th>
+            <th>نام </th>
+            <th> نام خانوادگی </th>
+            <th>کد ملی </th>
+            <th>شماره تلفن </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+       @for (members of data; track $index)   {
+       <tr>
+            <td>{{members.id}}</td>
+            <td>{{members.fristname}}</td>
+             <td>{{members.lastname}}</td>
+              <td>{{members.nationalcode}}</td>  
+               <td>{{members.phonenumber}}</td>
+                <td>
+                    <button>حذف </button>
+                     <button>ویرایش </button>
+                </td>
+        </tr>
+       }
+    </tbody>
+</table>

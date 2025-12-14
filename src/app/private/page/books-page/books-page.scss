@@ -6,15 +6,16 @@ table{
         border-bottom: 1px solid gray;
     }
     tr:nth-of-type(2n+1){
-        background-color: rgb(233, 220, 220);
+        background-color: rgb(255, 231, 248);
     }
     td,th{
         text-align: right;
         padding: 0.3em;
     }
     th{
-        background-color: gray;
+        background-color: rgb(164, 164, 164);
         padding: 0.3em;
+       color: aliceblue;
     }
     td:last-of-type{
         text-align: left;
