@@ -6,7 +6,7 @@
 }
 .login {
   width: 230px;
-  background-color: rgb(255, 204, 238);
+  background-color: rgb(204, 222, 255);
   padding: 1.3em;
   border: none;
   border-radius: 14px ;
@@ -22,13 +22,14 @@ div{
   }
   button{
     width: 100%;
-    background-color: rgb(215, 91, 172);
+    background-color: rgb(91, 120, 215);
     color: aliceblue;
     padding: 5px;
     border: none;
     border-radius: 15px;
+    transition: 0.3s;
   }
   button:hover {
-    background-color: rgb(244, 158, 221);
+    background-color: rgb(158, 172, 244);
   }
 }

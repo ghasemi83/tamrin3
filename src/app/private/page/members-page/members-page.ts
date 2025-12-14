@@ -1,22 +1,55 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { MembersService } from './members-service';
+import { first } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-members-page',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './members-page.html',
   styleUrl: './members-page.scss',
 })
-export class MembersPage {
 
-  data:MembersItem[]=[
-    {id:1,fristname:'مهشید ',lastname:'قاسمی ',nationalcode:'3865551444',phonenumber:'09387681575'},
-    {id:1,fristname:'تر',lastname:'بابایی ',nationalcode:'3865521484',phonenumber:'09382027575'},
-    {id:1,fristname:'مریم ',lastname:'قاسمی ',nationalcode:'3869552474',phonenumber:'09387761575'},
-    {id:1,fristname:'آرسام ',lastname:'بابایی ',nationalcode:'3879991444',phonenumber:'09361227575'},
-    {id:1,fristname:'مانلی ',lastname:'رفعت ',nationalcode:'3864551334',phonenumber:'09387477875'},
-  ]
+export class MembersPage implements OnInit {
+save() {
+this.membersService.add(this.item);
+this.refreshData();
+this.action='list';
+}
+
+cancel() {
+this.action='list';
+}
+
+ngOnInit(): void {
+    this.refreshData();
+  }
+
+  membersService=inject(MembersService)
+  data:MembersItem[]=[];
+  action:string='list';
+
+  item:MembersItem={
+    id:0,
+    fristname:'',
+    lastname:'',
+    nationalcode:'',
+    phonenumber:'',
+  };
+
+  refreshData(){
+    this.data=this.membersService.list();
+  }
+
   add() {
-
+    this.item={
+    id:0,
+    fristname:'',
+    lastname:'',
+    nationalcode:'',
+    phonenumber:'',
+    }
+    this.action='add';
 }
 }
 
@@ -25,5 +58,5 @@ export interface MembersItem {
   fristname:string;
   lastname:string;
   nationalcode:string;
-  phonenumber:string
+  phonenumber:string;
 }

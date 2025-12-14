@@ -17,15 +17,19 @@ this.booksService.add(this.item);
 this.refreshData();
 this.action='list';
 }
+
 cancel() {
 this.action='list';
 }
-  ngOnInit(): void {
+
+ ngOnInit(): void {
   this.refreshData();
   }
+
   booksService=inject(BooksService);
  data:BookItem[]=[];
  action:string='list';
+
  item:BookItem={
   id:0,
   title:'',
@@ -37,12 +41,18 @@ this.action='list';
   refreshData() {
     this.data=this.booksService.list();
   }
+  
  add() {
+  this.item={
+    id:0,
+    title:'',
+    writer:'',
+    publisher:'',
+    price:0,
+  };
   this.action='add';
-
 }
 }
-
 
 export interface BookItem {
   id:number;

@@ -1,6 +1,6 @@
 
 .sidebar{
-    background-color: palevioletred;
+    background-color: rgb(39, 111, 220);
     position: fixed;
     right: 0 ;
     top: 0;
@@ -14,11 +14,12 @@
         text-decoration: none;
         display: block;
         padding: 0.3em 0.5em ;
-        border-radius: 0.3em ;
+        border-radius: 0.6em ;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
     }
     a:hover{
-        background-color: rgb(238, 154, 182);
+        background-color: rgb(128, 183, 251);
+        transition: 0.4s;
     }
 }
 .content{

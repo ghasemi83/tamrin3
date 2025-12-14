@@ -1,3 +1,5 @@
+@if (action=='list') {
+
 <div>
     <button (click)="add()">افزودن </button>
 </div>
@@ -28,3 +30,28 @@
        }
     </tbody>
 </table>
+}
+
+@else {
+    <form (ngSubmit)="save()">
+           <div>
+        <input [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="شناسه ">
+    </div>
+        <div>
+        <input [(ngModel)]="item.fristname" id="fristname" name="fristname" type="text" placeholder="نام  ">
+    </div>
+        <div>
+        <input [(ngModel)]="item.lastname" id="lastname" name="lastname" type="text" placeholder="نام خانوادگی ">
+    </div>
+        <div>
+        <input [(ngModel)]="item.nationalcode" id="nationalcode" name="nationalcode" type="number" placeholder="کد ملی ">
+    </div>
+        <div>
+        <input [(ngModel)]="item.phonenumber" id="phonenumber" name="phonenumber" type="number " placeholder="شماره تماس ">
+    </div>
+    <div>
+        <button type="submit"> تایید</button>
+        <button (click)="cancel()" type="button">انصراف </button>
+    </div>
+    </form>
+}
