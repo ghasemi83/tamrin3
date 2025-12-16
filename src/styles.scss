@@ -3,3 +3,10 @@
     margin: 0 ;
 }
 
+@font-face {
+    font-family: Persian;
+    src: url('/fonts/persian.woff2');
+}
+*{
+    font-family: Persian;
+}
