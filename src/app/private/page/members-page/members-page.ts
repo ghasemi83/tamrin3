@@ -30,7 +30,7 @@ ngOnInit(): void {
   action:string='list';
 
   item:MembersItem={
-    id:0,
+    id:undefined,
     fristname:'',
     lastname:'',
     nationalcode:'',
@@ -43,7 +43,7 @@ ngOnInit(): void {
 
   add() {
     this.item={
-    id:0,
+    id:undefined,
     fristname:'',
     lastname:'',
     nationalcode:'',
@@ -54,7 +54,7 @@ ngOnInit(): void {
 }
 
 export interface MembersItem {
-  id:number;
+  id:number | undefined;
   fristname:string;
   lastname:string;
   nationalcode:string;

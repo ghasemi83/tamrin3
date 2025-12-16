@@ -31,11 +31,11 @@ this.action='list';
  action:string='list';
 
  item:BookItem={
-  id:0,
+  id:undefined,
   title:'',
   writer:'',
   publisher:'',
-  price:0,
+  price:undefined,
  };
 
   refreshData() {
@@ -44,20 +44,20 @@ this.action='list';
   
  add() {
   this.item={
-    id:0,
+    id:undefined,
     title:'',
     writer:'',
     publisher:'',
-    price:0,
+    price:undefined,
   };
   this.action='add';
 }
 }
 
 export interface BookItem {
-  id:number;
+  id: number | undefined;
   title:string;
   writer:string;
   publisher:string;
-  price:number;
+  price:number |undefined;
 }
