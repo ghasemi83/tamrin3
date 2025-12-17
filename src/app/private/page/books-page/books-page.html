@@ -22,7 +22,7 @@
               <td>{{book.publisher}}</td>  
                <td>{{book.price | number }} تومان </td>
                 <td>
-                    <button>حذف </button>
+                    <button (click)="remove(book)">حذف </button>
                      <button (click)="edit(book)">ویرایش </button>
                 </td>
         </tr>
@@ -31,21 +31,26 @@
 </table>
 }
 @else {
+    @if (action=='remove') {
+        <div class="alert">
+            آیا از حذف این کتاب اطمینان دارید؟
+        </div>
+    }
 <form (ngSubmit)="save()">
     <div >
-        <input [class.makhfi]="action=='edit'" [disabled]="action=='edit'" [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="شناسه ">
+        <input [class.makhfi]="action=='edit'" [disabled]="action=='edit' || action=='remove' " [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="شناسه ">
     </div>
         <div>
-        <input [(ngModel)]="item.title" id="title" name="title" type="text" placeholder="عنوان ">
+        <input [disabled]="action=='remove'" [(ngModel)]="item.title" id="title" name="title" type="text" placeholder="عنوان ">
     </div>
         <div>
-        <input [(ngModel)]="item.writer" id="writer" name="writer" type="text" placeholder="نویسنده ">
+        <input [disabled]="action=='remove'" [(ngModel)]="item.writer" id="writer" name="writer" type="text" placeholder="نویسنده ">
     </div>
         <div>
-        <input [(ngModel)]="item.publisher" id="publisher" name="publisher" type="text" placeholder="ناشر ">
+        <input [disabled]="action=='remove'" [(ngModel)]="item.publisher" id="publisher" name="publisher" type="text" placeholder="ناشر ">
     </div>
         <div>
-        <input [(ngModel)]="item.price" id="price" name="price" type="number " placeholder="قیمت ">
+        <input [disabled]="action=='remove'" [(ngModel)]="item.price" id="price" name="price" type="number " placeholder="قیمت ">
     </div>
     <div>
         <button type="submit"> تایید</button>

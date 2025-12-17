@@ -18,6 +18,9 @@ save() {
   else if(this.action=='edit'){
     this.membersService.update(this.item);
   }
+  else if(this.action=='remove'){
+    this.membersService.remove(this.item)
+  }
 this.refreshData();
 this.action='list';
 }
@@ -61,6 +64,12 @@ edit(member:MembersItem){
   this.item={...member};
   this.action='edit';
 }
+
+remove(member:MembersItem){
+  this.item={...member};
+  this.action='remove';
+}
+
 }
 
 export interface MembersItem {

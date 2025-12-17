@@ -27,7 +27,7 @@ update(book:BookItem){
     this.data[index].price=book.price;
   }
 }
-remove(){
-
+remove(book:BookItem){
+  this.data=this.data.filter(m=>m.id!=book.id);
 }
 }

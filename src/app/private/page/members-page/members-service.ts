@@ -28,7 +28,7 @@ export class MembersService {
       this.data[index].phonenumber=member.phonenumber;
     }
   }
-  remove(){
-
+  remove(member:MembersItem){
+    this.data=this.data.filter(m=>m.id!=member.id);
   }
 }

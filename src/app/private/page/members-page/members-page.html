@@ -23,7 +23,7 @@
               <td>{{members.nationalcode}}</td>  
                <td>{{members.phonenumber}}</td>
                 <td>
-                    <button>حذف </button>
+                    <button (click)="remove(members)">حذف </button>
                      <button (click)="edit(members)">ویرایش </button>
                 </td>
         </tr>
@@ -33,21 +33,26 @@
 }
 
 @else {
+    @if (action=='remove') {
+        <div class="alert">
+            آیا از حذف مشخصات کاربر اطمینان دارید؟
+        </div>
+    }
     <form (ngSubmit)="save()">
            <div>
-        <input [class.makhfi]="action=='edit'" [disabled]="action=='edit'" [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="شناسه ">
+        <input [class.makhfi]="action=='edit'" [disabled]="action=='edit' || action=='remove'" [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="شناسه ">
     </div>
         <div>
-        <input [(ngModel)]="item.fristname" id="fristname" name="fristname" type="text" placeholder="نام  ">
+        <input [disabled]="action=='remove'" [(ngModel)]="item.fristname" id="fristname" name="fristname" type="text" placeholder="نام  ">
     </div>
         <div>
-        <input [(ngModel)]="item.lastname" id="lastname" name="lastname" type="text" placeholder="نام خانوادگی ">
+        <input  [disabled]="action=='remove'" [(ngModel)]="item.lastname" id="lastname" name="lastname" type="text" placeholder="نام خانوادگی ">
     </div>
         <div>
-        <input [(ngModel)]="item.nationalcode" id="nationalcode" name="nationalcode" type="number" placeholder="کد ملی ">
+        <input [disabled]="action=='remove'"  [(ngModel)]="item.nationalcode" id="nationalcode" name="nationalcode" type="number" placeholder="کد ملی ">
     </div>
         <div>
-        <input [(ngModel)]="item.phonenumber" id="phonenumber" name="phonenumber" type="number " placeholder="شماره تماس ">
+        <input [disabled]="action=='remove'"  [(ngModel)]="item.phonenumber" id="phonenumber" name="phonenumber" type="number " placeholder="شماره تماس ">
     </div>
     <div>
         <button type="submit"> تایید</button>
