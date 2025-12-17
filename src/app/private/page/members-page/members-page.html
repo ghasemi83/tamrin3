@@ -24,7 +24,7 @@
                <td>{{members.phonenumber}}</td>
                 <td>
                     <button>حذف </button>
-                     <button>ویرایش </button>
+                     <button (click)="edit(members)">ویرایش </button>
                 </td>
         </tr>
        }
@@ -35,7 +35,7 @@
 @else {
     <form (ngSubmit)="save()">
            <div>
-        <input [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="شناسه ">
+        <input [class.makhfi]="action=='edit'" [disabled]="action=='edit'" [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="شناسه ">
     </div>
         <div>
         <input [(ngModel)]="item.fristname" id="fristname" name="fristname" type="text" placeholder="نام  ">

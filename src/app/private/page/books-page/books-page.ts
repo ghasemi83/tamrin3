@@ -13,9 +13,14 @@ import { DecimalPipe } from '@angular/common';
 
 export class BooksPage implements OnInit {
 save() {
-this.booksService.add(this.item);
-this.refreshData();
-this.action='list';
+  if(this.action=='add'){
+  this.booksService.add(this.item);
+  }
+  else if(this.action=='edit'){
+    this.booksService.update(this.item);
+  }
+  this.refreshData();
+  this.action='list';
 }
 
 cancel() {
@@ -51,6 +56,11 @@ this.action='list';
     price:undefined,
   };
   this.action='add';
+}
+
+edit(book:BookItem){
+  this.item={...book};
+  this.action='edit';
 }
 }
 

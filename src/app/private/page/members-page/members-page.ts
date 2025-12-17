@@ -12,7 +12,12 @@ import { FormsModule } from '@angular/forms';
 
 export class MembersPage implements OnInit {
 save() {
-this.membersService.add(this.item);
+  if(this.action=='add'){
+    this.membersService.add(this.item);
+  }
+  else if(this.action=='edit'){
+    this.membersService.update(this.item);
+  }
 this.refreshData();
 this.action='list';
 }
@@ -50,6 +55,11 @@ ngOnInit(): void {
     phonenumber:'',
     }
     this.action='add';
+}
+
+edit(member:MembersItem){
+  this.item={...member};
+  this.action='edit';
 }
 }
 

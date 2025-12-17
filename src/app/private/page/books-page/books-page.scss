@@ -68,7 +68,7 @@ form button {
 }
 form button[type="submit"]{
     background-color:rgb(73, 99, 215);
-    color:rgb(255, 255, 255);
+    color:rgb(230, 230, 230);
 }
 form button[type="submit"]:hover{
     background-color:rgb(131, 169, 229) ;
@@ -79,4 +79,7 @@ form button[type="button"]{
 }
 form button[type="button"]:hover{
     background-color: rgb(131, 169, 229);
+}
+.makhfi{
+    background-color: rgb(214, 214, 214);
 }

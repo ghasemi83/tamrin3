@@ -19,8 +19,14 @@ export class MembersService {
   list(){
     return[...this.data];
   }
-  update(){
-
+  update(member:MembersItem){
+    const index=this.data.findIndex(m=>m.id==member.id);
+    if(index!=-1){
+      this.data[index].fristname=member.fristname;
+      this.data[index].lastname=member.lastname;
+      this.data[index].nationalcode=member.nationalcode;
+      this.data[index].phonenumber=member.phonenumber;
+    }
   }
   remove(){
 

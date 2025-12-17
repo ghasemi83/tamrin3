@@ -23,7 +23,7 @@
                <td>{{book.price | number }} تومان </td>
                 <td>
                     <button>حذف </button>
-                     <button>ویرایش </button>
+                     <button (click)="edit(book)">ویرایش </button>
                 </td>
         </tr>
     }
@@ -32,8 +32,8 @@
 }
 @else {
 <form (ngSubmit)="save()">
-    <div>
-        <input [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="شناسه ">
+    <div >
+        <input [class.makhfi]="action=='edit'" [disabled]="action=='edit'" [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="شناسه ">
     </div>
         <div>
         <input [(ngModel)]="item.title" id="title" name="title" type="text" placeholder="عنوان ">
