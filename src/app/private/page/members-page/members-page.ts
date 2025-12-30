@@ -3,6 +3,7 @@ import { MembersService } from './members-service';
 import { first } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { Thing } from '../../../shared/base/base-thing';
+import { BaseCRUDPage } from '../../../shared/base/base-page';
 
 @Component({
   selector: 'app-members-page',
@@ -11,65 +12,11 @@ import { Thing } from '../../../shared/base/base-thing';
   styleUrl: './members-page.scss',
 })
 
-export class MembersPage implements OnInit {
-save() {
-  if(this.action=='add'){
-    this.membersService.add(this.item);
-  }
-  else if(this.action=='edit'){
-    this.membersService.update(this.item);
-  }
-  else if(this.action=='remove'){
-    this.membersService.remove(this.item)
-  }
-this.refreshData();
-this.action='list';
-}
-
-cancel() {
-this.action='list';
-}
-
-ngOnInit(): void {
+export class MembersPage extends BaseCRUDPage<MembersItem> implements OnInit {
+  override dataService=inject(MembersService)
+  ngOnInit(): void {
     this.refreshData();
   }
-
-  membersService=inject(MembersService)
-  data:MembersItem[]=[];
-  action:string='list';
-
-  item:MembersItem={
-    id:undefined,
-    fristname:'',
-    lastname:'',
-    nationalcode:'',
-    phonenumber:'',
-  };
-
-  refreshData(){
-    this.data=this.membersService.list();
-  }
-
-  add() {
-    this.item={
-    id:undefined,
-    fristname:'',
-    lastname:'',
-    nationalcode:'',
-    phonenumber:'',
-    }
-    this.action='add';
-}
-
-edit(member:MembersItem){
-  this.item={...member};
-  this.action='edit';
-}
-
-remove(member:MembersItem){
-  this.item={...member};
-  this.action='remove';
-}
 
 }
 

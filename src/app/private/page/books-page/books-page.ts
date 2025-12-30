@@ -3,6 +3,7 @@ import { BooksService } from './books-service';
 import { FormsModule } from '@angular/forms';
 import { DecimalPipe } from '@angular/common';
 import { Thing } from '../../../shared/base/base-thing';
+import { BaseCRUDPage } from '../../../shared/base/base-page';
 
 
 @Component({
@@ -12,66 +13,12 @@ import { Thing } from '../../../shared/base/base-thing';
   styleUrl: './books-page.scss',
 })
 
-export class BooksPage implements OnInit {
-save() {
-  if(this.action=='add'){
-  this.booksService.add(this.item);
-  }
-  else if(this.action=='edit'){
-    this.booksService.update(this.item);
-  }
-  else if(this.action=='remove'){
-    this.booksService.remove(this.item);
-  }
-
-  this.refreshData();
-  this.action='list';
-}
-
-cancel() {
-this.action='list';
-}
-
- ngOnInit(): void {
+export class BooksPage extends BaseCRUDPage<BookItem> implements OnInit {
+   override dataService=inject(BooksService);
+  ngOnInit(): void {
   this.refreshData();
   }
 
-  booksService=inject(BooksService);
- data:BookItem[]=[];
- action:string='list';
-
- item:BookItem={
-  id:undefined,
-  title:'',
-  writer:'',
-  publisher:'',
-  price:undefined,
- };
-
-  refreshData() {
-    this.data=this.booksService.list();
-  }
-  
- add() {
-  this.item={
-    id:undefined,
-    title:'',
-    writer:'',
-    publisher:'',
-    price:undefined,
-  };
-  this.action='add';
-}
-
-edit(book:BookItem){
-  this.item={...book};
-  this.action='edit';
-}
-
-remove(book:BookItem){
-  this.item={...book};
-  this.action='remove';
-}
 }
 
 export interface BookItem extends Thing {
