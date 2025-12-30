@@ -1,33 +1,23 @@
 import { Injectable } from '@angular/core';
 import { BookItem } from './books-page';
+import { BaseCRUDService } from '../../../shared/base/base-service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class BooksService {
+export class BooksService extends BaseCRUDService<BookItem>{
   
-  private data:BookItem[]=[
+  override data:BookItem[]=[
     {id:1,title:'بیمناک',writer:'لورن رابرتس ',publisher:'آذرگون ',price:200000},
     {id:2,title:' یاد او',writer:'کالین هوور ',publisher:'آذرگون ',price:150000},
     {id:3,title:'دیزی دارکر ',writer:'آلیس فینی ',publisher:'آذرگون ',price:450000},
     {id:4,title:' دزیره ',writer:'آن ماری سلینکو ',publisher:'آذرگون ',price:280000},
    ];
-    add(book:BookItem) {
-  this.data.push(book);
+   override edit(destination: BookItem, source: BookItem): void {
+     destination.price=source.price;
+     destination.publisher=source.publisher;
+     destination.title=source.title;
+     destination.writer=source.writer;
+   }
 }
-list(){
-  return[...this.data];
-}
-update(book:BookItem){
-  const index=this.data.findIndex(b=>b.id==book.id);
-  if(index!=-1){
-    this.data[index].title=book.title;
-    this.data[index].writer=book.writer;
-    this.data[index].publisher=book.publisher;
-    this.data[index].price=book.price;
-  }
-}
-remove(book:BookItem){
-  this.data=this.data.filter(m=>m.id!=book.id);
-}
-}
+

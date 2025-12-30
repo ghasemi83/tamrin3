@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { BooksService } from './books-service';
 import { FormsModule } from '@angular/forms';
 import { DecimalPipe } from '@angular/common';
+import { Thing } from '../../../shared/base/base-thing';
 
 
 @Component({
@@ -73,8 +74,7 @@ remove(book:BookItem){
 }
 }
 
-export interface BookItem {
-  id: number | undefined;
+export interface BookItem extends Thing {
   title:string;
   writer:string;
   publisher:string;

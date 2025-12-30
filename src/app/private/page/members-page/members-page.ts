@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { MembersService } from './members-service';
 import { first } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { Thing } from '../../../shared/base/base-thing';
 
 @Component({
   selector: 'app-members-page',
@@ -72,8 +73,7 @@ remove(member:MembersItem){
 
 }
 
-export interface MembersItem {
-  id:number | undefined;
+export interface MembersItem extends Thing{
   fristname:string;
   lastname:string;
   nationalcode:string;
