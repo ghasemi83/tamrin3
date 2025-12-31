@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { DecimalPipe } from '@angular/common';
 import { Thing } from '../../../shared/base/base-thing';
 import { BaseCRUDPage } from '../../../shared/base/base-page';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -18,9 +19,16 @@ export class BooksPage extends BaseCRUDPage<BookItem> implements OnInit {
   ngOnInit(): void {
   this.refreshData();
   }
-
+  override addPrepair(): void {
+    this.item={
+      publisher:'',
+      title:'',
+      writer:'',
+      price:undefined,
+    };
+  }
 }
-
+    
 export interface BookItem extends Thing {
   title:string;
   writer:string;

@@ -24,14 +24,13 @@ export class BaseCRUDPage<T extends Thing> {
   }
 
    add() {
- // this.item={
-    //title:'',
-   // writer:'',
-   // publisher:'',
- //   price:undefined,
-  //};
+  this.addPrepair();
   this.action='add';
 }
+
+  addPrepair(){
+
+  }
 
 edit(i:T){
   this.item={...i};
