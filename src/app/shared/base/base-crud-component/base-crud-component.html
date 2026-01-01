@@ -1,0 +1,52 @@
+@if (myaction=='list') {
+
+<div>
+    <button (click)="onAdd.emit()">افزودن </button>
+</div>
+<table>
+    <thead>
+      <tr>
+        @for (col of columns; track $index) {
+
+            <th> {{col.title}} </th>
+        }
+            <th></th>
+        </tr>
+       <!-- <tr>
+            <th><input type="text" placeholder="شناسه"></th>
+             <th><input type="text" placeholder="نام"></th>
+              <th><input type="text" placeholder="نام خانوادگی"></th>
+               <th><input type="text" placeholder="کد ملی "></th>
+                <th><input type="text" placeholder="شماره تلفن"></th>
+        </tr>-->
+    </thead>
+    <tbody>
+       @for (members of data; track $index)   {
+       <tr>
+        @for (col of columns; track $index) {
+            <td>{{members[col.field]}}</td>
+        }
+                <td>
+                   <button (click)="onEdit.emit(members)">حذف </button>
+                   <button (click)="onRemove.emit(members)">ویرایش </button>
+                </td>
+        </tr>
+    }
+    </tbody>
+</table>
+}
+
+@else {
+    @if (myaction=='remove') {
+        <div class="alert">
+            آیا از حذف مشخصات کاربر اطمینان دارید؟
+        </div>
+    }
+   <form>
+
+   <div>
+        <button type="submit"> تایید</button>
+        <button (click)="onCancel.emit()" type="button">انصراف </button>
+    </div>
+    </form>
+}

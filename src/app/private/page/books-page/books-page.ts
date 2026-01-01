@@ -5,11 +5,12 @@ import { DecimalPipe } from '@angular/common';
 import { Thing } from '../../../shared/base/base-thing';
 import { BaseCRUDPage } from '../../../shared/base/base-page';
 import { Title } from '@angular/platform-browser';
+import { BaseCrudComponent, Column } from "../../../shared/base/base-crud-component/base-crud-component";
 
 
 @Component({
   selector: 'app-books-page',
-  imports: [FormsModule,DecimalPipe],
+  imports: [FormsModule, DecimalPipe, BaseCrudComponent],
   templateUrl: './books-page.html',
   styleUrl: './books-page.scss',
 })
@@ -27,7 +28,15 @@ export class BooksPage extends BaseCRUDPage<BookItem> implements OnInit {
       price:undefined,
     };
   }
+  columns:Column[]=[
+    {field:'id',title:'شناسه '},
+    {field:'title',title:'عنوان'},
+    {field:'writer',title:'نویسنده'},
+    {field:'publisher',title:'ناشر'},
+    {field:'price',title:'قیمت'},
+  ]
 }
+  
     
 export interface BookItem extends Thing {
   title:string;

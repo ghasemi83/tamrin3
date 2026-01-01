@@ -4,10 +4,11 @@ import { first } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { Thing } from '../../../shared/base/base-thing';
 import { BaseCRUDPage } from '../../../shared/base/base-page';
+import { BaseCrudComponent, Column } from "../../../shared/base/base-crud-component/base-crud-component";
 
 @Component({
   selector: 'app-members-page',
-  imports: [FormsModule],
+  imports: [FormsModule, BaseCrudComponent],
   templateUrl: './members-page.html',
   styleUrl: './members-page.scss',
 })
@@ -25,6 +26,14 @@ export class MembersPage extends BaseCRUDPage<MembersItem> implements OnInit {
       phonenumber:'',
     }
   }
+  
+    columns:Column[]=[
+      {field:'id',title:'شناسه '},
+      {field:'fristname',title:'نام'},
+      {field:'lastname',title:'نام خانوادگی'},
+      {field:'nationalcode',title:'کد ملی'},
+      {field:'phonenumber',title:'شماره تلفن'},
+    ]
 }
 
 export interface MembersItem extends Thing{

@@ -1,3 +1,14 @@
+<my-crud 
+    [myaction]="action"
+    (onAdd)="add()"
+    (onCancel)="cancel()"
+    [columns]="columns"
+    [data]="data"
+    (onEdit)="edit($event)"
+    (onRemove)="remove($event)"
+
+    ></my-crud>
+<hr>
 @if (action=='list'){
 <div>
     <button (click)="add()">افزودن </button>
