@@ -27,8 +27,8 @@
             <td>{{members[col.field]}}</td>
         }
                 <td>
-                   <button (click)="onEdit.emit(members)">حذف </button>
-                   <button (click)="onRemove.emit(members)">ویرایش </button>
+                   <button (click)="onRemove.emit(members)">حذف </button>
+                   <button (click)="onEdit.emit(members)">ویرایش </button>
                 </td>
         </tr>
     }
@@ -43,9 +43,9 @@
         </div>
     }
    <form>
-
+     <ng-content></ng-content>
    <div>
-        <button type="submit"> تایید</button>
+        <button (click)="onSave.emit()" type="button"> تایید</button>
         <button (click)="onCancel.emit()" type="button">انصراف </button>
     </div>
     </form>

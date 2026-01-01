@@ -19,6 +19,12 @@ export class BooksPage extends BaseCRUDPage<BookItem> implements OnInit {
    override dataService=inject(BooksService);
   ngOnInit(): void {
   this.refreshData();
+  this.item={
+    publisher:'',
+    title:'',
+    writer:'',
+    price:undefined,
+  }
   }
   override addPrepair(): void {
     this.item={

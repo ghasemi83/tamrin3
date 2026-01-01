@@ -17,6 +17,12 @@ export class MembersPage extends BaseCRUDPage<MembersItem> implements OnInit {
   override dataService=inject(MembersService)
   ngOnInit(): void {
     this.refreshData();
+    this.item={
+      fristname:'',
+      lastname:'',
+      nationalcode:'',
+      phonenumber:'',
+    }
   }
   override addPrepair(): void {
     this.item={

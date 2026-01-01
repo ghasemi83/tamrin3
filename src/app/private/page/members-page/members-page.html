@@ -6,50 +6,10 @@
     [data]="data"
     (onEdit)="edit($event)"
     (onRemove)="remove($event)"
-    ></my-crud>
-<hr>
-@if (action=='list') {
-
-<div>
-    <button (click)="add()">افزودن </button>
-</div>
-<table>
-    <thead>
-        <tr>
-            <th> شناسه </th>
-            <th>نام </th>
-            <th> نام خانوادگی </th>
-            <th>کد ملی </th>
-            <th>شماره تلفن </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-       @for (members of data; track $index)   {
-       <tr>
-            <td>{{members.id}}</td>
-            <td>{{members.fristname}}</td>
-             <td>{{members.lastname}}</td>
-              <td>{{members.nationalcode}}</td>  
-               <td>{{members.phonenumber}}</td>
-                <td>
-                    <button (click)="remove(members)">حذف </button>
-                     <button (click)="edit(members)">ویرایش </button>
-                </td>
-        </tr>
-       }
-    </tbody>
-</table>
-}
-
-@else {
-    @if (action=='remove') {
-        <div class="alert">
-            آیا از حذف مشخصات کاربر اطمینان دارید؟
-        </div>
-    }
-    <form (ngSubmit)="save()">
-           <div>
+    (onSave)="save()"
+    >
+    
+     <div>
         <input [class.makhfi]="action=='edit'" [disabled]="action=='edit' || action=='remove'" [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="شناسه ">
     </div>
         <div>
@@ -64,9 +24,7 @@
         <div>
         <input [disabled]="action=='remove'"  [(ngModel)]="item.phonenumber" id="phonenumber" name="phonenumber" type="number " placeholder="شماره تماس ">
     </div>
-    <div>
-        <button type="submit"> تایید</button>
-        <button (click)="cancel()" type="button">انصراف </button>
-    </div>
-    </form>
-}
+    
+</my-crud>
+
+
