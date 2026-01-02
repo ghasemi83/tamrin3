@@ -10,7 +10,7 @@ import { BaseCrudComponent, Column } from "../../../shared/base/base-crud-compon
 
 @Component({
   selector: 'app-books-page',
-  imports: [FormsModule, DecimalPipe, BaseCrudComponent],
+  imports: [FormsModule, BaseCrudComponent],
   templateUrl: './books-page.html',
   styleUrl: './books-page.scss',
 })

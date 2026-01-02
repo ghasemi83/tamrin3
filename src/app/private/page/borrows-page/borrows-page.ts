@@ -12,7 +12,7 @@ import { BorrowsService } from './borrows-service';
 
 @Component({
   selector: 'app-borrows-page',
-  imports: [FormsModule,DecimalPipe,BaseCrudComponent],
+  imports: [FormsModule,BaseCrudComponent],
   templateUrl: './borrows-page.html',
   styleUrl: './borrows-page.scss',
 })
