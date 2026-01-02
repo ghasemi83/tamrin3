@@ -1,51 +1,14 @@
-<hr>
-@if (action=='list'){
-<div>
-    <button (click)="add()">افزودن </button>
-</div>
-<table>
-    <thead>
-        <tr>
-            <th> شناسه </th>
-            <th>تاریخ امانت </th>
-            <th> تاریخ بازگشت </th>
-            <th>نام کتاب </th>
-            <th>نام امانت گیرنده </th>
-            <th></th>
-        </tr>
-        <tr>
-          <th><input type="text" placeholder="شناسه"></th>
-             <th><input type="text" placeholder="نام"></th>
-              <th><input type="text" placeholder="نام خانوادگی"></th>
-               <th><input type="text" placeholder="کد ملی "></th>
-                <th><input type="text" placeholder="شماره تلفن"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (borrow of data; track $index) {
-        <tr>
-            <td>{{borrow.id}} </td>
-            <td>{{borrow.borrowDate}}</td>
-             <td>{{borrow.returnDate}}</td>
-              <td>{{borrow.book}}</td>  
-               <td>{{borrow.member}}</td>
-                <td>
-                    <button (click)="remove(borrow)">حذف </button>
-                     <button (click)="edit(borrow)">ویرایش </button>
-                </td>
-        </tr>
-    }
-    </tbody>
-</table>
-}
-@else {
-    @if (action=='remove') {
-        <div class="alert">
-            آیا از حذف این کتاب اطمینان دارید؟
-        </div>
-    }
-<form (ngSubmit)="save()">
-    <div >
+<my-crud 
+    [myaction]="action"
+    (onAdd)="add()"
+    (onCancel)="cancel()"
+    [columns]="columns"
+    [data]="data"
+    (onEdit)="edit($event)"
+    (onRemove)="remove($event)"
+    (onSave)="save()"
+    >
+     <div >
         <input [class.makhfi]="action=='edit'" [disabled]="action=='edit' || action=='remove' " [(ngModel)]="item.id" id="id" name="id" type="number" placeholder="شناسه ">
     </div>
         <div>
@@ -55,13 +18,9 @@
         <input [disabled]="action=='remove'" [(ngModel)]="item.returnDate" id="returnDate" name="returnDate" type="text" placeholder="تاریخ بازگشت ">
     </div>
         <div>
-        <input [disabled]="action=='remove'" [(ngModel)]="item.book" id="book" name="book" type="text" placeholder="نام کتاب  ">
+        <input [disabled]="action=='remove'" [(ngModel)]="item.book" id="book" name="book" type="text" placeholder="نام کتاب ">
     </div>
         <div>
         <input [disabled]="action=='remove'" [(ngModel)]="item.member" id="member" name="member" type="text " placeholder="نام امانت گیرنده ">
     </div>
-    <div>
-        <button type="submit"> تایید</button>
-        <button (click)="cancel()" type="button">انصراف </button>
-    </div>
-</form> }
+</my-crud>

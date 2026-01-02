@@ -10,10 +10,10 @@ export class BorrowsService extends BaseCRUDService<BorrowItem>{
   
   override data:BorrowItem[]=[
     
-      {id:1,borrowDate:'3/8/1404',returnDate:'26/8/1404',book:'دزیره',member:'مریم قاسمی'},
-      {id:1,borrowDate:'7/9/1404',returnDate:'20/9/1404',book:'بیمناک',member:'آرسام بابایی'},
-      {id:1,borrowDate:'1/10/1404',returnDate:'15/10/1404',book:'دیزی دارکر',member:'مانلی رفعت'},
-      {id:1,borrowDate:'28/8/1404',returnDate:'15/10/1404',book:'یاد او ',member:'مهشید قاسمی'},
+      {id:1,borrowDate:'1404/8/3',returnDate:'1404/8/26',book:'دزیره',member:'مریم قاسمی'},
+      {id:1,borrowDate:'1404/9/7',returnDate:'1404/9/20',book:'بیمناک',member:'آرسام بابایی'},
+      {id:1,borrowDate:'1404/10/1',returnDate:'1404/10/15',book:'دیزی دارکر',member:'مانلی رفعت'},
+      {id:1,borrowDate:'1404/8/28',returnDate:'1404/10/15',book:'یاد او ',member:'مهشید قاسمی'},
   ]
   override edit(destination: BorrowItem, source: BorrowItem): void {
     destination.borrowDate=source.borrowDate;
