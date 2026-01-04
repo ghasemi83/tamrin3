@@ -38,19 +38,21 @@ form {
     border-radius: 15px;
 }
 form > div {
-    display: flex;
+   display: flex;
     flex-direction: column;
     margin-bottom: 7px;
     width: 100%;
 }
- form input {
-    width: 100%;
-    padding: 10px 10px;
-    font-size: 14px;
-    border: none;
-    border-radius: 15px;
-    box-sizing: border-box;
+ ::ng-deep form input {
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  border: 0.5px solid rgb(183, 183, 183);
+  margin: 1px;
+  font-size: 14px;
 }
+
 form input:focus {
     outline: none;
     border-color: rgb(194, 194, 194);
